@@ -10,6 +10,7 @@
     <title>Les meilleures annonces</title>
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('css')
 </head>

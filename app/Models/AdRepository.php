@@ -37,4 +37,24 @@ class AdRepository
             ->latest()
             ->paginate(3);
     }
+
+    /**
+     * Get photos.
+     *
+     * @param \App\Models\Ad $ad
+     */
+    public function getPhotos($ad)
+    {
+        return $ad->photos()->get();
+    }
+
+    /**
+     * Get an ad by id.
+     *
+     * @param integer $id
+     */
+    public function getById($id)
+    {
+        return Ad::findOrFail($id);
+    }
 }

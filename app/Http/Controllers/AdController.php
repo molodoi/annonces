@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ { Category, Region };
+use App\Models\ { Category, Region, Ad };
 use App\Models\AdRepository;
 
 class AdController extends Controller
@@ -90,9 +90,11 @@ class AdController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Ad $ad)
     {
-        //
+        $this->authorize('show', $ad);
+        $photos = $this->adRepository->getPhotos($ad);
+        return view('ad', compact('ad', 'photos'));
     }
 
     /**

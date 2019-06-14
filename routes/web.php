@@ -48,3 +48,8 @@ Route::prefix('annonces')->group(function () {
     Route::get('{region?}/{departement?}/{commune?}', 'AdController@index')->name('annonces.index');
     Route::post('recherche', 'AdController@search')->name('annonces.search')->middleware('ajax');
 });
+
+// Photos upload management and message
+Route::middleware('ajax')->group(function () {
+    Route::post('message', 'UserController@message')->name('message');
+});
